@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- The same Spring MVC setup as WebConfig.java, written in XML (section 4 of the tutorial).
-     web.xml loads this file into the "xml" DispatcherServlet. -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -10,19 +8,15 @@
            http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
            http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!-- Same as @ComponentScan: find the @Controller classes -->
     <context:component-scan base-package="group.sdt213homework9.web.controller" />
-    <!-- Same as @EnableWebMvc -->
     <mvc:annotation-driven />
 
-    <!-- Same as the viewResolver() bean: "sample" -> /WEB-INF/view/sample.jsp -->
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/" />
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <!-- Same as addViewControllers(): "/" -> view "index" -->
     <mvc:view-controller path="/" view-name="index" />
 
 </beans>

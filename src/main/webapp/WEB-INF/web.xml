@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- web.xml is used only for the XML configuration (section 4 of the tutorial).
-     The Java configuration is started by MainWebAppInitializer, so metadata-complete="false"
-     tells the container to still look for it. -->
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_1.xsd"
          version="6.1"
          metadata-complete="false">
 
-    <!-- A second DispatcherServlet that reads its Spring beans from xml-config.xml -->
     <servlet>
         <servlet-name>xml</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -19,8 +15,6 @@
         <load-on-startup>2</load-on-startup>
     </servlet>
 
-    <!-- Every URL that starts with /xml/ goes to the XML-configured servlet,
-         for example /xml/sample is handled by SampleController -->
     <servlet-mapping>
         <servlet-name>xml</servlet-name>
         <url-pattern>/xml/*</url-pattern>

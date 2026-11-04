@@ -1,4 +1,3 @@
-<%-- View returned by SampleController for GET /sample --%>
 <html>
    <head></head>
 

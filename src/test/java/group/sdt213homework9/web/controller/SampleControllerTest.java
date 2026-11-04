@@ -13,13 +13,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-/**
- * Checks the Java configuration without starting a server.
- * MockMvc sends fake requests through the DispatcherServlet.
- */
-@SpringJUnitWebConfig(WebConfig.class) // load WebConfig into a test web context
+@SpringJUnitWebConfig(WebConfig.class)
 class SampleControllerTest {
-
     private MockMvc mockMvc;
 
     @BeforeEach
@@ -31,15 +26,15 @@ class SampleControllerTest {
     void sampleUrlShowsSampleJsp() throws Exception {
         mockMvc.perform(get("/sample"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("sample")) // name returned by SampleController
-                .andExpect(forwardedUrl("/WEB-INF/view/sample.jsp")); // file chosen by the view resolver
+                .andExpect(view().name("sample"))
+                .andExpect(forwardedUrl("/WEB-INF/view/sample.jsp"));
     }
 
     @Test
     void rootUrlShowsIndexJsp() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("index")) // set by the view controller in WebConfig
+                .andExpect(view().name("index"))
                 .andExpect(forwardedUrl("/WEB-INF/view/index.jsp"));
     }
 

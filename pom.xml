@@ -7,7 +7,6 @@
     <groupId>group</groupId>
     <artifactId>sdt213-homework9</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <!-- A web application is packaged as a WAR file and runs inside a servlet container -->
     <packaging>war</packaging>
     <name>sdt213-homework9</name>
 
@@ -20,14 +19,12 @@
     </properties>
 
     <dependencies>
-        <!-- Spring MVC: DispatcherServlet, @Controller, @GetMapping, view resolvers -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
-        <!-- Servlet API. "provided" = the servlet container (Jetty/Tomcat) already has it -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
@@ -35,7 +32,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- JSTL, needed by JstlView that WebConfig uses for the .jsp views -->
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -47,7 +43,6 @@
             <version>3.0.1</version>
         </dependency>
 
-        <!-- Tests: Spring MockMvc + JUnit -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
@@ -60,7 +55,6 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- MockMvc result matchers have overloads that take Hamcrest matchers -->
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
@@ -86,8 +80,6 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.4.0</version>
             </plugin>
-            <!-- Jetty servlet container. Run the app with: mvnw jetty:run
-                 Then open http://localhost:8080/spring-mvc-basics/ -->
             <plugin>
                 <groupId>org.eclipse.jetty.ee11</groupId>
                 <artifactId>jetty-ee11-maven-plugin</artifactId>

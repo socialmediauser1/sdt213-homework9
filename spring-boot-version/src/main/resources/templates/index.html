@@ -1,0 +1,14 @@
+<!-- Spring Boot shows templates/index.html for "/" by itself (welcome page),
+     so the view controller from WebConfig is not needed here -->
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Spring MVC Tutorial (Spring Boot)</title>
+   </head>
+
+   <body>
+      <h1>Spring MVC Tutorial</h1>
+      <p>This page is served by <b>Spring Boot</b>.</p>
+      <!-- th:href="@{...}" builds the link with the context path, like c:url in JSP -->
+      <a th:href="@{/sample}">Sample view</a>
+   </body>
+</html>
